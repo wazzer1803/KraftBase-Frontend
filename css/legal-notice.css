@@ -1,0 +1,119 @@
+.content {
+    margin-left: 326px;
+    margin-top: 64px;
+    width: calc(100% - 422px);
+   
+  }
+  
+  .content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-block: unset;
+    margin-bottom: 28px;
+  }
+  
+  .content h2 {
+    font-size: 27px;
+    font-weight: 700;
+    margin-block: unset;
+  }
+  
+  .content h3 {
+    margin-block: unset;
+    margin-top: 8px;
+  }
+  
+  .content a {
+    text-decoration: none;
+    color: #29abe2;
+  }
+  
+  .content a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  
+  .content p {
+    margin-block: unset;
+    margin-bottom: 24px;
+  }
+  
+  .blue {
+    color: #29abe2;
+  }
+  
+  .steps {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .step {
+    display: flex;
+    align-items: start;
+  }
+  
+  .mb24 {
+    margin-bottom: 24px !important;
+  }
+  
+  .mt0 {
+    margin-top: 0 !important;
+  }
+  
+  .mr35 {
+    margin-right: 35px;
+  }
+  
+  .backArrowLegal {
+    width: 37px;
+    height: 37px;
+    position: fixed;
+    left: 90vw;
+    top: 20vh;
+    border-radius: 50%;
+    transition: all 150;
+  }
+  
+  .backArrowLegal:hover {
+    cursor: pointer;
+    background-color: #eeeeee;
+    transform: scale(1.1);
+  }
+  
+  .hyphen {
+    display: none;
+  }
+  
+  .legals-link {
+    word-break: break-word;
+  }
+  
+  .legals-text {
+    padding-bottom: 16px;
+  }
+  
+  @media (min-width: 851px) and (max-width: 1078px) {
+    .hyphen {
+      display: inline-block;
+    }
+  }
+  
+  @media (max-width: 850px) {
+    .content {
+      margin-left: 16px;
+      margin-right: 16px;
+      width: calc(100% - 32px);
+      margin-bottom: 96px;
+      margin-top: 0;
+    }
+    .content h1 {
+      font-size: 48px;
+      padding-top: 96px;
+    }
+  }
+  
+  @media (max-width: 596px) {
+    .hyphen {
+      display: inline-block;
+    }
+  }
