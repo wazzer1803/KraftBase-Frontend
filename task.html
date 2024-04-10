@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tikker - Add Task</title>
+  <link rel="shortcut icon" href="./img/favicon/join-favicon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="css/inter.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/sidebar.css" />
+  <link rel="stylesheet" href="css/header.css" />
+  <link rel="stylesheet" href="css/task.css" />
+  <link rel="stylesheet" href="css/task_responsive.css" />
+  <link rel="stylesheet" href="css/contacts-overlay.css" />
+  <link rel="stylesheet" href="css/contacts-overlay-responsive.css" />
+</head>
+
+<body onload="init(), initHead()">
+
+  <header>
+    <img class="headerJoinLogo" src="./img/join-logo-blue.svg" />
+    <div class="headerText">Kanban Project Management Tool</div>
+    <div class="headerIcons">
+      <a class="header-help" href="help.html" id="id-6">
+        <div><img class="help-icon" src="./img/help.svg" /></div>
+      </a>
+      <div>
+        <div id="userInitials" class="userImage" onclick="showLogout()"></div>
+      </div>
+    </div>
+  </header>
+  <div id="header-logout"></div>
+
+  <div class="navMainContent" id="navMainContent">
+    <img class="navLogo" src="./img/join-logo.svg">
+
+    <div class="navMenu" id="sidebar-menu">
+      <a class="navLink" href="summary.html" id="id-0">
+        <div class="navCategory">
+          <div class="navCategory-inner-frame">
+            <img src="./img/summary-icon.svg">
+            <p>Summary</p>
+          </div>
+        </div>
+      </a>
+      <a class="navLink" href="board.html" id="id-1">
+        <div class="navCategory">
+          <div class="navCategory-inner-frame">
+            <img src="./img//board-icon.svg">
+            <p>Board</p>
+          </div>
+        </div>
+      </a>
+      <a class="navLink" href="task.html" id="id-2">
+        <div class="navCategory">
+          <div class="navCategory-inner-frame">
+            <img src="./img/write-task-icon.svg">
+            <p>Add Task</p>
+          </div>
+        </div>
+      </a>
+      <a class="navLink" href="contacts.html" id="id-3">
+        <div class="navCategory">
+          <div class="navCategory-inner-frame">
+            <img src="./img/contacts-icon.svg">
+            <p>Contacts</p>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="sidebar-footer">
+      <a class="navLink" href="legal_notice.html" id="id-4">
+        <div class="navCategory">
+          <div class="navCategory-inner-frame">
+            <img src="./img/info-icon.png">
+            <p>Legal notice</p>
+          </div>
+        </div>
+      </a>
+      <a class="navLink" href="privacy_policy.html" id="id-5">
+        <div class="navCategory">
+          <div class="navCategory-inner-frame">
+            <img src="./img/info-icon.png">
+            <p>Privacy Policy</p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <section class="main">
+    <div class="main-container">
+      <h1 class="task-heading-h1">Add Task</h1>
+      <div class="task-form-container">
+        <form class="task-form" onsubmit="addTask(); return false" autocomplete="off">
+          <div class="task-form-subcontainer">
+            <div class="task-input-container">
+              <label class="task-form-label" for="title">
+                Title<svg class="task-form-star" viewBox="0 0 16 16">
+                  <use href="assets/img/icons.svg#star-icon"></use>
+                </svg>
+              </label>
+              <input class="task-form-input" type="text" name="title" id="title" placeholder="Enter a title"
+                minlength="2" required />
+              <label class="task-form-label" for="description">Description</label>
+              <div class="task-form-text-wrapper">
+                <textarea class="task-form-text" name="text" id="description"
+                  placeholder="Enter a Description"></textarea>
+                <svg class="task-form-resize-icon">
+                  <use href="assets/img/icons.svg#resize-icon"></use>
+                </svg>
+              </div>
+
+              <label class="task-form-label" for="assign">Assigned to</label>
+              <div class="task-dropdown-container">
+                <span id="arrow-assign" class="task-arrow-dropdown">
+                  <svg viewBox="0 0 8 5">
+                    <use href="assets/img/icons.svg#arrow-icon"></use>
+                  </svg>
+                </span>
+                <input class="task-assign" id="assign" type="text" name="assign"
+                  placeholder="Select contacts to assign" />
+                <div id="assign-content" class="assign-content d-none">
+                  <div class="assign-overlay" id="assign-overlay" onclick="closeAssignDropdown()"></div>
+                  <div class="assign-dropdown-menu" id="assign-dropdown-menu"></div>
+                  <div class="assign-button-container" id="assign-button-container"></div>
+                </div>
+                <div id="initials-content"></div>
+              </div>
+            </div>
+            <div class="task-input-container">
+              <label class="task-form-label" for="date">
+                Due date<svg class="task-form-star" viewBox="0 0 16 16">
+                  <use href="assets/img/icons.svg#star-icon"></use>
+                </svg>
+              </label>
+              <input class="task-form-date" type="date" name="date" id="date" max="2025-12-31" required />
+              <div class="task-form-label">Prio</div>
+              <div class="task-form-prio">
+                <div class="task-form-btn" id="urgent-btn" onclick="selectPrioButton('urgent-btn')">
+                  Urgent
+                  <svg class="task-form-urgent-icon" viewBox="0 0 21 16">
+                    <use href="assets/img/icons.svg#urgentprio-icon"></use>
+                  </svg>
+                </div>
+                <div class="task-form-btn" id="medium-btn" onclick="selectPrioButton('medium-btn')">
+                  Medium
+                  <svg class="task-form-medium-icon" viewBox="0 0 21 8">
+                    <use href="assets/img/icons.svg#mediumprio-icon"></use>
+                  </svg>
+                </div>
+                <div class="task-form-btn" id="low-btn" onclick="selectPrioButton('low-btn')">
+                  Low
+                  <svg class="task-form-low-icon" viewBox="0 0 21 16">
+                    <use href="assets/img/icons.svg#lowprio-icon"></use>
+                  </svg>
+                </div>
+              </div>
+              <div class="task-form-label">
+                Category<svg class="task-form-star" viewBox="0 0 16 16">
+                  <use href="assets/img/icons.svg#star-icon"></use>
+                </svg>
+              </div>
+              <div class="task-dropdown-container">
+                <span id="arrow-category" class="task-arrow-dropdown" onclick="toggleCategoryDropdown()">
+                  <svg viewBox="0 0 8 5">
+                    <use href="assets/img/icons.svg#arrow-icon"></use>
+                  </svg>
+                </span>
+                <input class="task-category" id="category" placeholder="Select task category" type="text"
+                  onkeydown="return false;" required onclick="toggleCategoryDropdown()" />
+                <div id="category-content"></div>
+              </div>
+              <label class="task-form-label" for="subtasks">Subtasks</label>
+              <div class="task-form-subtasks">
+                <input class="task-form-input m-b05" type="text" name="subtasks" id="subtasks"
+                  placeholder="Add new subtask" />
+                <div onclick="addSubtask()">
+                  <svg class="task-form-add-icon" id="task-add-icon" viewBox="0 0 15 14">
+                    <use href="assets/img/icons.svg#add-icon"></use>
+                  </svg>
+                </div>
+                <div id="subtasks-container"></div>
+              </div>
+            </div>
+          </div>
+          <div class="task-submit-container">
+            <div class="task-required-text">
+              <svg class="task-form-star" viewBox="0 0 16 16">
+                <use href="assets/img/icons.svg#star-icon"></use>
+              </svg>
+              This field is required
+            </div>
+            <div class="task-submit-buttons">
+              <button class="task-clear-button" type="reset" onclick="resetForm()">
+                Clear
+                <svg class="task-clear-icon">
+                  <use href="assets/img/icons.svg#x-icon"></use>
+                </svg>
+              </button>
+              <button class="main-button" type="submit" id="create-task">
+                Create Task
+                <svg class="task-create-icon">
+                  <use href="assets/img/icons.svg#check-icon"></use>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </form>
+        <div class="loader-overlay d-none" id="loader-overlay"></div>
+        <div id="loader"></div>
+        <div class="success d-none" id="success-task">
+          <div class="success-container">
+            <span class="success-message">Task added to board</span>
+            <img class="board-icon" src="img/board-icon.svg" alt="Board icon" />
+          </div>
+        </div>
+        <div class="success-contact" id="success-contact">
+          <div class="success-contact-container" id="success-contact-animation">
+            <span class="success-message">Contact successfully created</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="new-contact-container"></div>
+  </section>
+
+  <div class="responsiveMain">
+    <a class="responsiveLinks" href="summary.html" id="idResponsive-0">
+      <div class="responsiveBox">
+        <img class="responsiveIcons" src="./img/summary-icon.svg" />
+        <span class="responsiveText">Summary</span>
+      </div>
+    </a>
+    <a class="responsiveLinks" href="board.html" id="idResponsive-1">
+      <div class="responsiveBox">
+        <img class="responsiveIcons" src="./img/board-icon.svg" />
+        <span class="responsiveText">Board</span>
+      </div>
+    </a>
+    <a class="responsiveLinks" href="task.html" id="idResponsive-2">
+      <div class="responsiveBox">
+        <img class="responsiveIcons" src="./img/write-task-icon.svg" />
+        <span class="responsiveText">Add Task</span>
+      </div>
+    </a>
+    <a class="responsiveLinks" href="contacts.html" id="idResponsive-3">
+      <div class="responsiveBox">
+        <img class="responsiveIcons" src="./img/contacts-icon.svg" />
+        <span class="responsiveText">Contacts</span>
+      </div>
+    </a>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/add_task_templates.js"></script>
+  <script src="js/add_task_dropdown.js"></script>
+  <script src="js/add_task_contact.js"></script>
+  <script src="js/add_task.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/contacts.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="./css/inter.css" />
+  <link rel="stylesheet" href="./css/open_sans.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/board.css" />
+  <link rel="stylesheet" href="./css/board_responsive.css" />
+
+  <link rel="stylesheet" href="./css/task.css" />
+  <link rel="stylesheet" href="css/task_responsive.css" />
+  <link rel="stylesheet" href="./css/contacts.css" />
+  <link rel="stylesheet" href="css/contacts-overlay.css" />
+  <link rel="stylesheet" href="css/contacts-overlay-responsive.css" />
+
+  <link rel="stylesheet" href="./css/sidebar.css" />
+  <link rel="stylesheet" href="./css/header.css" />
+
+  <script src="js/board.js" defer></script>
+  <script src="js/board_help_functions.js" defer></script>
+  <script src="js/board_templates.js" defer></script>
+
+  <script src="js/script.js" defer></script>
+  <script src="js/add_task.js" defer></script>
+  <script src="js/add_task_templates.js" defer></script>
+  <script src="js/add_task_dropdown.js" defer></script>
+  <script src="js/add_task_contact.js"></script>
+  <script src="js/storage.js" defer></script>
+  <script src="js/header.js"></script>
+  <script src="js/contacts.js"></script>
+
+  <title>Board</title>
+  <link rel="shortcut icon" href="./img/favicon/join-favicon.png" type="image/x-icon" />
+</head>
+
+<body onload="initBoard(), initHead()">
+  <header>
+    <img class="headerJoinLogo" src="./img/join-logo-blue.svg" />
+    <div class="headerText">Kanban Project Management Tool</div>
+    <div class="headerIcons">
+      <a class="header-help" href="help.html" id="id-6">
+        <div><img class="help-icon" src="./img/help.svg" /></div>
+      </a>
+      <div>
+        <div id="userInitials" class="userImage" onclick="showLogout()"></div>
+      </div>
+    </div>
+  </header>
+  <div id="header-logout"></div>
+
+  <div class="navMainContent" id="navMainContent">
+    <img class="navLogo" src="./img/join-logo.svg">
+
+    <div class="navMenu" id="sidebar-menu">
+      <a class="navLink" href="summary.html" id="id-0">
+        <div class="navCategory">
+          <div class="navCategory-inner-frame">
+            <img src="./img/summary-icon.svg">
+            <p>Summary</p>
+          </div>
+        </div>
+      </a>
+      <a class="navLink" href="board.html" id="id-1">
+        <div class="navCategory">
+          <div class="navCategory-inner-frame">
+            <img src="./img//board-icon.svg">
+            <p>Board</p>
+          </div>
+        </div>
+      </a>
+      <a class="navLink" href="task.html" id="id-2">
+        <div class="navCategory">
+          <div class="navCategory-inner-frame">
+            <img src="./img/write-task-icon.svg">
+            <p>Add Task</p>
+          </div>
+        </div>
+      </a>
+      <a class="navLink" href="contacts.html" id="id-3">
+        <div class="navCategory">
+          <div class="navCategory-inner-frame">
+            <img src="./img/contacts-icon.svg">
+            <p>Contacts</p>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="sidebar-footer">
+      <a class="navLink" href="legal_notice.html" id="id-4">
+        <div class="navCategory">
+          <div class="navCategory-inner-frame">
+            <img src="./img/info-icon.png">
+            <p>Legal notice</p>
+          </div>
+        </div>
+      </a>
+      <a class="navLink" href="privacy_policy.html" id="id-5">
+        <div class="navCategory">
+          <div class="navCategory-inner-frame">
+            <img src="./img/info-icon.png">
+            <p>Privacy Policy</p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+  <section class="boardHeaderContainer">
+    <div class="boardHeader">
+      <div class="boardHeaderMobile">
+        <h1>Board</h1>
+        <button class="addTaskMobile" onclick="location.href ='task.html'">
+          <img src="img/board_add_task.svg" alt="" />
+        </button>
+      </div>
+
+      <div class="boardHeaderInteract">
+        <div class="inputWithImg">
+          <input id="findTask" type="text" placeholder="Find Task" />
+          <div class="findTaskImg" onclick="searchTask()"></div>
+        </div>
+        <button class="addTaskDesktop" onclick="addTaskOnBoard('toDoStatus')">
+          Add task
+          <img src="img/board_add_task.svg" alt="" />
+        </button>
+      </div>
+    </div>
+  </section>
+  <section class="boradContent" id="boradContent">
+    <div class="sectionDragArea">
+      <div class="headerDragArea">
+        <h2>To do</h2>
+        <img onclick="addTaskOnBoard('toDoStatus')" class="addTaskToSection addTaskDesktop"
+          src="img/board_plus_button.svg" alt="Add Task to to do" />
+        <img class="addTaskMobile" onclick="location.href ='task.html'" src="img/board_plus_button.svg"
+          alt="Add Task to to do" />
+      </div>
+      <div id="toDo" class="draArea"
+        ondrop="moveTo('toDoStatus', 'toDo')"
+        ondragover="allowDrop(event, 'toDo')"
+        ondragend="removeHighlighting('toDo')"
+        ondragleave="removeHighlighting('toDo')"></div>
+    </div>
+
+    <div class="sectionDragArea">
+      <div class="headerDragArea">
+        <h2>In progress</h2>
+        <img onclick="addTaskOnBoard('inProgressStatus')" class="addTaskToSection addTaskDesktop"
+          src="img/board_plus_button.svg" alt="Add Task to in Progress" />
+        <img class="addTaskMobile" onclick="location.href ='task.html'" src="img/board_plus_button.svg"
+          alt="Add Task to in Progress" />
+      </div>
+      <div id="inProgress" class="draArea"
+        ondrop="moveTo('inProgressStatus', 'inProgress')"
+        ondragover="allowDrop(event, 'inProgress')"
+        ondragend="removeHighlighting('inProgress')"
+        ondragleave="removeHighlighting('inProgress')"></div>
+    </div>
+
+    <div class="sectionDragArea">
+      <div class="headerDragArea">
+        <h2>Await feedback</h2>
+        <img onclick="addTaskOnBoard('awaitFeedbackStatus')" class="addTaskToSection addTaskDesktop"
+          src="img/board_plus_button.svg" alt="Add Task to Await Feedback" />
+        <img class="addTaskMobile" onclick="location.href ='task.html'" src="img/board_plus_button.svg"
+          alt="Add Task to Await Feedback" />
+      </div>
+      <div id="awaitFeedback" class="draArea" 
+        ondrop="moveTo('awaitFeedbackStatus', 'awaitFeedback')"
+        ondragover="allowDrop(event, 'awaitFeedback')"
+        ondragend="removeHighlighting('awaitFeedback')"
+        ondragleave="removeHighlighting('awaitFeedback')"></div>
+      </div>
+    </div>
+
+    <div class="sectionDragArea">
+      <div class="headerDragArea">
+        <h2>Done</h2>
+      </div>
+      <div id="done" class="draArea"
+        ondrop="moveTo('doneStatus', 'done')"
+        ondragover="allowDrop(event, 'done')"
+        ondragend="removeHighlighting('done')"
+        ondragleave="removeHighlighting('done')"></div>
+    </div>
+  </section>
+  <div id="new-contact-container"></div>
+  <div class="loader-overlay d-none" id="loader-overlay"></div>
+  <div id="loader"></div>
+  <div class="contact-success" id="success-contact">
+    <div class="contact-success-container" id="success-contact-animation">
+      <span class="success-message">Contact successfully created</span>
+    </div>
+  </div>
+
+  <div class="responsiveMain">
+    <a class="responsiveLinks" href="summary.html" id="idResponsive-0">
+      <div class="responsiveBox">
+        <img class="responsiveIcons" src="./img/summary-icon.svg" />
+        <span class="responsiveText">Summary</span>
+      </div>
+    </a>
+    <a class="responsiveLinks" href="board.html" id="idResponsive-1">
+      <div class="responsiveBox">
+        <img class="responsiveIcons" src="./img/board-icon.svg" />
+        <span class="responsiveText">Board</span>
+      </div>
+    </a>
+    <a class="responsiveLinks" href="task.html" id="idResponsive-2">
+      <div class="responsiveBox">
+        <img class="responsiveIcons" src="./img/write-task-icon.svg" />
+        <span class="responsiveText">Add Task</span>
+      </div>
+    </a>
+    <a class="responsiveLinks" href="contacts.html" id="idResponsive-3">
+      <div class="responsiveBox">
+        <img class="responsiveIcons" src="./img/contacts-icon.svg" />
+        <span class="responsiveText">Contacts</span>
+      </div>
+    </a>
+  </div>
+</body>
+
+</html>
