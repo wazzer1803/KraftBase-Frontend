@@ -104,7 +104,7 @@ function loginHTML() {
             </div>
         </div>
         <div class="login-signup login-signup-mobile" id="login-signup">
-            <span class="login-signup-text">Not a Join user?</span>
+            <span class="login-signup-text">Not a Tikker user?</span>
             <button class="main-button main-button-signup" onclick="renderSection('register')">
             Sign up
             </button>

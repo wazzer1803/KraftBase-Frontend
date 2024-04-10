@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Help</title>
+  <link rel="shortcut icon" href="./img/favicon/join-favicon.png" type="image/x-icon" />
+  <script src="js/header.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/storage.js" defer></script>
+
+  <link rel="stylesheet" href="./css/inter.css" />
+  <link rel="stylesheet" href="./css/sidebar.css" />
+  <link rel="stylesheet" href="./css/contacts.css" />
+  <link rel="stylesheet" href="./css/header.css" />
+  <link rel="stylesheet" href="./css/help.css" />
+  <link rel="stylesheet" href="./css/legal-notice.css" />
+</head>
+
+<body onload="initHead()">
+  <header>
+    <img class="headerJoinLogo" src="./img/join-logo-blue.svg" />
+    <div class="headerText">Kanban Project Management Tool</div>
+    <div class="headerIcons">
+      <a class="header-help" href="help.html" id="id-6">
+        <div><img class="help-icon" src="./img/help.svg" /></div>
+      </a>
+      <div>
+        <div id="userInitials" class="userImage" onclick="showLogout()"></div>
+      </div>
+    </div>
+  </header>
+  <div id="header-logout"></div>
+
+  <div class="navMainContent" id="navMainContent">
+    <img class="navLogo" src="./img/join-logo.svg">
+
+    <div class="navMenu" id="sidebar-menu">
+      <a class="navLink" href="summary.html" id="id-0">
+        <div class="navCategory">
+          <div class="navCategory-inner-frame">
+            <img src="./img/summary-icon.svg">
+            <p>Summary</p>
+          </div>
+        </div>
+      </a>
+      <a class="navLink" href="board.html" id="id-1">
+        <div class="navCategory">
+          <div class="navCategory-inner-frame">
+            <img src="./img//board-icon.svg">
+            <p>Board</p>
+          </div>
+        </div>
+      </a>
+      <a class="navLink" href="task.html" id="id-2">
+        <div class="navCategory">
+          <div class="navCategory-inner-frame">
+            <img src="./img/write-task-icon.svg">
+            <p>Add Task</p>
+          </div>
+        </div>
+      </a>
+      <a class="navLink" href="contacts.html" id="id-3">
+        <div class="navCategory">
+          <div class="navCategory-inner-frame">
+            <img src="./img/contacts-icon.svg">
+            <p>Contacts</p>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="sidebar-footer">
+      <a class="navLink" href="legal_notice.html" id="id-4">
+        <div class="navCategory">
+          <div class="navCategory-inner-frame">
+            <img src="./img/info-icon.png">
+            <p>Legal notice</p>
+          </div>
+        </div>
+      </a>
+      <a class="navLink" href="privacy_policy.html" id="id-5">
+        <div class="navCategory">
+          <div class="navCategory-inner-frame">
+            <img src="./img/info-icon.png">
+            <p>Privacy Policy</p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+  <img class="backArrowLegal" onclick="history.back()" src="./img/backArrow.svg" alt="Back Arow" />
+
+  <section class="content">
+    <h1>Help</h1>
+    <p>
+      Welcome to the help page for <span class="blue">Tikker</span>, your guide
+      to using our kanban project management tool. Here, we'll provide an
+      overview of what <span class="blue">Tikker</span>
+      is, how it can benefit you, and how to use it.
+    </p>
+    <h2 class="mb24">What is Tikker?</h2>
+    <p>
+      <span class="blue">Tikker</span> is a kanban-based project management tool
+      designed and built by a group of dedicated students as part of their web
+      development bootcamp at the Developer Akademie. <br /><br />
+      Kanban, a Japanese term meaning "billboard", is a highly effective
+      method to visualize work, limit work-in-progress, and maximize
+      efficiency (or flow). <span class="blue">Tikker</span> leverages the
+      principles of kanban to help users manage their tasks and projects in an
+      intuitive, visual interface. <br /><br />
+      It is important to note that <span class="blue">Tikker</span> is designed
+      as an educational exercise and is not intended for extensive business
+      usage. While we strive to ensure the best possible user experience, we
+      cannot guarantee consistent availability, reliability, accuracy, or
+      other aspects of quality regarding <span class="blue">Tikker</span>.
+    </p>
+    <h2 class="mb24">How to use it</h2>
+    <p>
+      Here is a step-by-step guide on how to use
+      <span class="blue">Tikker</span>:
+    </p>
+    <div class="steps">
+      <div class="step">
+        <h2 class="mr35">1.</h2>
+        <div>
+          <h3 class="mt0">Exploring the Board</h3>
+          <p>
+            When you log in to <span class="blue">Tikker</span>, you'll find a
+            default board. This board represents your project and contains
+            four default lists: "To Do", "In Progress", “Await feedback” and
+            "Done".
+          </p>
+        </div>
+      </div>
+      <div class="step">
+        <h2 class="mr35">2.</h2>
+        <div>
+          <h3 class="mt0">Creating Contacts</h3>
+          <p>
+            In <span class="blue">Tikker</span>, you can add contacts to
+            collaborate on your projects. Go to the "Contacts" section, click
+            on "New contact", and fill in the required information. Once
+            added, these contacts can be assigned tasks and they can interact
+            with the tasks on the board.
+          </p>
+        </div>
+      </div>
+      <div class="step">
+        <h2 class="mr35">3.</h2>
+        <div>
+          <h3 class="mt0">Adding Cards</h3>
+          <p>
+            Now that you've added your contacts, you can start adding cards.
+            Cards represent individual tasks. Click the "+" button under the
+            appropriate list to create a new card. Fill in the task details in
+            the card, like task name, description, due date, assignees, etc.
+          </p>
+        </div>
+      </div>
+      <div class="step">
+        <h2 class="mr35">4.</h2>
+        <div>
+          <h3 class="mt0">Moving Cards</h3>
+          <p>
+            As the task moves from one stage to another, you can reflect that
+            on the board by dragging and dropping the card from one list to
+            another.
+          </p>
+        </div>
+      </div>
+      <div class="step">
+        <h2 class="mr35">5.</h2>
+        <div>
+          <h3 class="mt0">Deleting Cards</h3>
+          <p>
+            Once a task is completed, you can either move it to the "Done"
+            list or delete it. Deleting a card will permanently remove it from
+            the board. Please exercise caution when deleting cards, as this
+            action is irreversible.
+            <br /><br />
+            Remember that using <span class="blue">Tikker</span> effectively
+            requires consistent updates from you and your team to ensure the
+            board reflects the current state of your project. <br /><br />
+            Have more questions about <span class="blue">Tikker</span>? Feel
+            free to contact us
+           
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="responsiveMain">
+      <a class="responsiveLinks" href="summary.html" id="idResponsive-0">
+        <div class="responsiveBox">
+          <img class="responsiveIcons" src="./img/summary-icon.svg" />
+          <span class="responsiveText">Summary</span>
+        </div>
+      </a>
+      <a class="responsiveLinks" href="board.html" id="idResponsive-1">
+        <div class="responsiveBox">
+          <img class="responsiveIcons" src="./img/board-icon.svg" />
+          <span class="responsiveText">Board</span>
+        </div>
+      </a>
+      <a class="responsiveLinks" href="task.html" id="idResponsive-2">
+        <div class="responsiveBox">
+          <img class="responsiveIcons" src="./img/write-task-icon.svg" />
+          <span class="responsiveText">Add Task</span>
+        </div>
+      </a>
+      <a class="responsiveLinks" href="contacts.html" id="idResponsive-3">
+        <div class="responsiveBox">
+          <img class="responsiveIcons" src="./img/contacts-icon.svg" />
+          <span class="responsiveText">Contacts</span>
+        </div>
+      </a>
+    </div>
+  </section>
+</body>
+
+</html>
