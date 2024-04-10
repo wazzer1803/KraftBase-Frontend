@@ -298,7 +298,7 @@ function getSelectedUsers() {
 
 
 /**
- * returns array containing objects with the subtasks if any subtasks exists
+ 
  * @returns an array
  */
 function getSubtasks() {
