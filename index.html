@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tikker</title>
+  <link rel="shortcut icon" href="./img/favicon/join-favicon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="css/inter.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/login.css" />
+  <link rel="stylesheet" href="css/login_responsive.css">
+</head>
+
+<body>
+  <img class="login-logo" src="img/login/join-logo-signup.svg" alt="Join Logo" />
+  <div class="bg-animation"></div>
+  <div class="content" id="content">
+    <div class="login-signup desktop-only d-none" id="login-signup">
+      <span class="login-signup-text">Not a Tikker user?</span>
+      <button class="main-button main-button-signup" onclick="renderSection('register')">
+        Sign up
+      </button>
+    </div>
+    <div class="container" id="container">
+      <div class="intro-note-container">
+        <div class="intro-note" id="intro-note">
+          <h2 class="intro-title">Welcome to Tikker !</h2>
+          <p class="intro-description">Tikker is a task management tool inspired by Kanban. With Tikker you are able to create
+            custom tasks in order to organize them all in one place.
+            Set a title, description, priorize the task and assign it to any user as needed. You can as well drag and drop
+            the task according to its status.
+            <br><br>
+            In order to get started either log in as a 'guest' or sign up with your own data. After signing up you can log
+            in with your data.
+            DO NOT enter any sensitive or confidential information on this page.
+            Any information you enter here may be publicly accessible, as this application is for demonstrational purposes
+            only.
+          </p>
+          <button class="main-button" onclick="closeIntro()">Ok, got it!</button>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="footer-container">
+        <a class="footer-link" href="privacy_policy_out.html" target="_blank">Privacy Policy</a>
+        <a class="footer-link" href="legal_notice_out.html" target="_blank">Legal Notice</a>
+      </div>
+    </footer>
+  </div>
+
+
+</body>
+
+</html>
