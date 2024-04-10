@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Summary</title>
+  <link rel="shortcut icon" href="./img/favicon/join-favicon.png" type="image/x-icon" />
+
+  <script src="js/summary.js" defer></script>
+  <script src="js/storage.js" defer></script>
+  <script src="js/header.js" defer></script>
+  <script src="js/script.js" defer></script>
+
+  <link rel="stylesheet" href="./css/inter.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/sidebar.css" />
+  <link rel="stylesheet" href="./css/contacts.css" />
+  <link rel="stylesheet" href="./css/header.css" />
+  <link rel="stylesheet" href="./css/summary.css" />
+</head>
+
+<body onload="initSummary(), initHead()">
+  <header>
+    <img class="headerJoinLogo" src="./img/join-logo-blue.svg" />
+    <div class="headerText">Kanban Project Management Tool</div>
+    <div class="headerIcons">
+      <a class="header-help" href="help.html" id="id-6">
+        <div><img class="help-icon" src="./img/help.svg" /></div>
+      </a>
+      <div>
+        <div id="userInitials" class="userImage" onclick="showLogout()"></div>
+      </div>
+    </div>
+  </header>
+  <div id="header-logout"></div>
+
+  <div class="navMainContent" id="navMainContent">
+    <img class="navLogo" src="./img/join-logo.svg">
+
+    <div class="navMenu" id="sidebar-menu">
+      <a class="navLink" href="summary.html" id="id-0">
+        <div class="navCategory">
+          <div class="navCategory-inner-frame">
+            <img src="./img/summary-icon.svg">
+            <p>Summary</p>
+          </div>
+        </div>
+      </a>
+      <a class="navLink" href="board.html" id="id-1">
+        <div class="navCategory">
+          <div class="navCategory-inner-frame">
+            <img src="./img//board-icon.svg">
+            <p>Board</p>
+          </div>
+        </div>
+      </a>
+      <a class="navLink" href="task.html" id="id-2">
+        <div class="navCategory">
+          <div class="navCategory-inner-frame">
+            <img src="./img/write-task-icon.svg">
+            <p>Add Task</p>
+          </div>
+        </div>
+      </a>
+      <a class="navLink" href="contacts.html" id="id-3">
+        <div class="navCategory">
+          <div class="navCategory-inner-frame">
+            <img src="./img/contacts-icon.svg">
+            <p>Contacts</p>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="sidebar-footer">
+      <a class="navLink" href="legal_notice.html" id="id-4">
+        <div class="navCategory">
+          <div class="navCategory-inner-frame">
+            <img src="./img/info-icon.png">
+            <p>Legal notice</p>
+          </div>
+        </div>
+      </a>
+      <a class="navLink" href="privacy_policy.html" id="id-5">
+        <div class="navCategory">
+          <div class="navCategory-inner-frame">
+            <img src="./img/info-icon.png">
+            <p>Privacy Policy</p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <section id="summaryContent" class="summaryContent">
+    <div class="summaryHead">
+      <h1>Join 360</h1>
+      <div class="sumHeadDevider"></div>
+      <span class="sumHeadSlogan">Key Metrics at a Glance</span>
+      <div class="sumHeadDeviderMobile"></div>
+    </div>
+    <div class="summaryMainContent">
+      <div class="summaryBoxes">
+        <div class="summaryBoxesTop">
+          <div class="summaryBox summaryBoxTop" onclick="location.href ='board.html'">
+            <div class="summaryBoxTopIcon">
+              <img class="summaryBoxesTopIcons" src="./img/summaryTodoIcon.svg" alt="" />
+            </div>
+            <div class="summaryCountContainer">
+              <div class="summaryCountNum" id="todoCount">0</div>
+              <div class="summaryCountText">To-do</div>
+            </div>
+          </div>
+          <div class="summaryBox summaryBoxTop" onclick="location.href ='board.html'">
+            <div class="summaryBoxTopIcon">
+              <img class="summaryBoxesTopIcons" src="./img/summaryDoneIcon.svg" alt="" />
+            </div>
+            <div class="summaryCountContainer">
+              <div class="summaryCountNum" id="doneCount">0</div>
+              <div class="summaryCountText">Done</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="summaryBox summaryBoxMid" onclick="location.href ='board.html'">
+          <div class="urgentIconCount">
+            <div class="summaryBoxMidIcon">
+              <img src="./img/summaryUrgentIcon.svg" alt="" />
+            </div>
+            <div class="summaryCountContainer">
+              <div class="summaryCountNum" id="urgentCount">0</div>
+              <div class="summaryCountText">Urgent</div>
+            </div>
+          </div>
+          <div class="sumUrgentDevider"></div>
+          <div>
+            <div class="nextUrgentDate" id="nextUrgentDate"></div>
+            <div class="nextUrgentDateText" id="nextUrgentDateText">
+              No Upcoming Deadline
+            </div>
+          </div>
+        </div>
+
+        <div class="summaryBoxesBottom">
+          <div class="summaryBox summaryBoxBottom" onclick="location.href ='board.html'">
+            <div class="summaryCountContainer">
+              <div class="summaryCountNum" id="totalCount">0</div>
+              <div class="summaryCountText">
+                Tasks in <br />
+                Board
+              </div>
+            </div>
+          </div>
+          <div class="summaryBox summaryBoxBottom" onclick="location.href ='board.html'">
+            <div class="summaryCountContainer">
+              <div class="summaryCountNum" id="progressCount">0</div>
+              <div class="summaryCountText">
+                Tasks in <br />
+                Progress
+              </div>
+            </div>
+          </div>
+          <div class="summaryBox summaryBoxBottom" onclick="location.href ='board.html'">
+            <div class="summaryCountContainer">
+              <div class="summaryCountNum" id="feedbackCount">0</div>
+              <div class="summaryCountText">
+                Awaiting <br />
+                Feedback
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="userGreet">
+        <div id="timedGreeting"></div>
+        <div id="logedinUser"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="mobileGreet">
+    <div id="mobileTimedGreeting"></div>
+    <div id="mobileLogedinUser"></div>
+  </section>
+
+  <div class="responsiveMain">
+    <a class="responsiveLinks" href="summary.html" id="idResponsive-0">
+      <div class="responsiveBox">
+        <img class="responsiveIcons" src="./img/summary-icon.svg" />
+        <span class="responsiveText">Summary</span>
+      </div>
+    </a>
+    <a class="responsiveLinks" href="board.html" id="idResponsive-1">
+      <div class="responsiveBox">
+        <img class="responsiveIcons" src="./img/board-icon.svg" />
+        <span class="responsiveText">Board</span>
+      </div>
+    </a>
+    <a class="responsiveLinks" href="task.html" id="idResponsive-2">
+      <div class="responsiveBox">
+        <img class="responsiveIcons" src="./img/write-task-icon.svg" />
+        <span class="responsiveText">Add Task</span>
+      </div>
+    </a>
+    <a class="responsiveLinks" href="contacts.html" id="idResponsive-3">
+      <div class="responsiveBox">
+        <img class="responsiveIcons" src="./img/contacts-icon.svg" />
+        <span class="responsiveText">Contacts</span>
+      </div>
+    </a>
+  </div>
+</body>
+
+</html>
